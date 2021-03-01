@@ -37,7 +37,7 @@ Emos是一个前后端分离的在线办公系统，项目采用 SpringBoot+Unia
 ![主页tab4](https://github.com/VincentTung/emos_online/blob/main/art/emos_tab4.jpeg)
 
 
-![签到1](https://github.com/VincentTung/emos_online/raw/master/art/emos_check1.jpeg)
+![签到1](https://github.com/VincentTung/emos_online/blob/main/art/emos_check1.jpeg)
 
 ![签到2](https://github.com/VincentTung/emos_online/blob/main/art/emos_check2.jpeg)
 
