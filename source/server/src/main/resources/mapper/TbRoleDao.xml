@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vincent.emos.wx.db.dao.TbRoleDao">
+
+
+    <select id="searchAllRoles" resultType="com.vincent.emos.wx.db.pojo.TbRole">
+        SELECT *
+        FROM tb_role
+    </select>
+    <select id="searchRoleOwnPermission" parameterType="int" resultType="HashMap">
+    SELECT
+      p.id,
+      m.module_name AS moduleName,
+      a.action_name AS actionName,
+      IF(r.id IS NOT NULL,TRUE,FALSE) AS selected
+    FROM  tb_permission p
+            JOIN tb_module m ON p.module_id=m.id
+            JOIN tb_action a ON p.action_id=a.id
+            LEFT JOIN tb_role r ON JSON_CONTAINS ( r.permissions, CAST( p.id AS CHAR ) ) AND r.id=#{id}
+    ORDER BY p.module_id,p.id
+  </select>
+
+
+    <select id="searchAllPermission" resultType="HashMap">
+        SELECT
+            p.id,
+            m.module_name AS moduleName,
+            a.action_name AS actionName,
+            FALSE AS selected
+        FROM tb_permission p
+                 JOIN tb_module m ON p.module_id=m.id
+                 JOIN tb_action a ON p.action_id=a.id
+        ORDER BY p.module_id,p.id
+    </select>
+    <insert id="insertRole" parameterType="com.vincent.emos.wx.db.pojo.TbRole">
+        INSERT INTO tb_role
+        SET role_name=#{roleName}, permissions=#{permissions}
+    </insert>
+    <update id="updateRolePermissions" parameterType="com.vincent.emos.wx.db.pojo.TbRole">
+        UPDATE tb_role
+        SET permissions=#{permissions}
+        WHERE id=#{id}
+    </update>
+
+    <delete id="deleteRole" parameterType="int">
+        DELETE FROM tb_role
+        WHERE  id = #{id}
+    </delete>
+</mapper>

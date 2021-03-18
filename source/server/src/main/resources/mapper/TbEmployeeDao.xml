@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vincent.emos.wx.db.dao.TbEmployeeDao">
+
+
+    <resultMap id="employees" type="com.vincent.emos.wx.db.pojo.EmployeeList">
+        <!-- id标签表示分组单位 -->
+        <id property="dept_id" column="dept_id"/>
+        <id property="dept_name" column="deptName"/>
+
+        <collection property="employees" ofType="com.vincent.emos.wx.db.pojo.TbEmployee">
+            <result property="name" column="name"></result>
+            <result property="tel" column="tel"></result>
+            <result property="email" column="email"></result>
+        </collection>
+    </resultMap>
+
+    <select id="searchEmployeeList" resultMap="employees">
+        SELECT u.name, d.dept_name AS deptName, u.tel, u.email, u.hiredate, u.dept_id
+        FROM tb_employee u
+                 LEFT JOIN tb_dept d ON u.dept_id = d.id
+    </select>
+    <select id="searchByCode" parameterType="int" resultType="com.vincent.emos.wx.db.pojo.TbEmployee">
+        SELECT code,
+               sex,
+               name,
+               tel,
+               email,
+               DATE_FORMAT(hiredate, '%Y-%m-%d') hiredate,
+               role,
+               dept_id
+        FROM tb_employee
+        WHERE code = #{code}
+    </select>
+
+    <select id="searchByDepartId" resultType="com.vincent.emos.wx.db.pojo.TbEmployee" parameterType="int">
+
+        SELECT u.name, d.dept_name AS deptName, u.tel, u.email, u.hiredate, u.dept_id
+        FROM tb_employee u
+                 LEFT JOIN tb_dept d ON u.dept_id = d.id
+        WHERE u.dept_id = #{dept_id}
+    </select>
+
+    <select id="searchByName" resultType="com.vincent.emos.wx.db.pojo.TbEmployee" parameterType="string">
+
+        SELECT u.name, d.dept_name AS deptName, u.tel, u.email, u.hiredate, u.dept_id
+        FROM tb_employee u
+                 LEFT JOIN tb_dept d ON u.dept_id = d.id
+        WHERE u.name = #{name}
+    </select>
+
+    <insert id="insertEmployee" parameterType="com.vincent.emos.wx.db.pojo.TbEmployee" useGeneratedKeys="true"
+            keyProperty="code" keyColumn="code">
+
+        INSERT INTO tb_employee (name, tel, email, hiredate, role, dept_id,sex)
+        VALUES (#{name}, #{tel}, #{email}, #{hiredate}, #{role}, #{deptId},sex)
+
+
+    </insert>
+
+    <select id="searchUnActiveEmployees" resultType="com.vincent.emos.wx.db.pojo.TbEmployee">
+
+        SELECT *
+        FROM tb_employee
+        WHERE state = 0
+    </select>
+
+    <update id="updateState" parameterType="HashMap">
+        UPDATE tb_employee
+        SET state = #{ state}
+        WHERE code = #{code}
+    </update>
+
+    <update id="updateEmployee" parameterType="com.vincent.emos.wx.db.pojo.TbEmployee">
+        UPDATE tb_employee
+        <set>
+            <if test="name!=null">name = #{name},</if>
+            <if test="sex!=null">
+                sex = #{sex},
+            </if>
+            <if test="tel!=null">tel = #{tel},</if>
+            <if test="email!=null">email = #{email},</if>
+            <if test="hiredate!=null">hiredate = #{hiredate},</if>
+            <if test="role!=null">role = #{role},</if>
+            dept_id = #{deptId},
+            state = #{state}
+        </set>
+        WHERE code = #{code}
+    </update>
+
+    <delete id="deleteEmployee" parameterType="int">
+        DELETE
+        FROM tb_employee
+        WHERE code = #{code}
+    </delete>
+</mapper>

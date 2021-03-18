@@ -1,0 +1,105 @@
+server:
+  tomcat:
+    uri-encoding: UTF-8
+    threads:
+      max: 200
+      min-spare: 30
+    connection-timeout: 5000ms
+  port: 996
+  servlet:
+    context-path: /emos-wx-api
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: 
+      username: 
+      password: 
+      initial-size: 8
+      max-active: 16
+      min-idle: 8
+      max-wait: 60000
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+  mail:
+    default-encoding: UTF-8
+    host: 
+    username: 
+    password: 
+
+
+  redis:
+    database: 0
+    host: localhost
+    port: 6379
+    password: 
+    jedis:
+      pool:
+        max-active: 1000
+        max-wait: -1ms
+        max-idle: 16
+        min-idle: 8
+
+  data:
+    mongodb:
+      host: localhost
+      port: 
+      database: emos
+      authentication-database: 
+      username: 
+      password: 
+
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    username: guest
+#    password: guest
+#    virtual-host: /
+#    listener:
+#      simple:
+#        #acknowledge-mode: manual #设置确认模式手工确认
+#        concurrency: 3 #消费者最小数量
+#        max-concurrency: 10 # 消费者最大数量
+
+mybatis:
+    mapper-locations: classpath*:mapper/*.xml
+    type-aliases-package: com.vincent.emos.wx.db.pojo
+    configuration:
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+      map-underscore-to-camel-case: true
+logging:
+    level:
+      root: info
+      com.vincent.emos.wx.db.dao: warn
+    pattern:
+      console: "%d{HH:mm:ss}  %-5level  %msg%n"
+
+emos:
+  jwt:
+    #密钥
+    secret: abc123456
+    #令牌过期时间（天）
+    expire:  5
+    #令牌缓存时间（天数）
+    cache-expire: 10
+
+ 
+  mail:
+    system: 系统管理员邮箱
+    hr: hr邮箱
+
+  image-folder: /root/image
+
+#微信参数配置
+wx:
+  app-id: 
+  app-secret: 
+
+
+tencentcloud:
+  secrect-id: 
+  secrect-key: 
+  facelib-id: 
+  facelib-name: 

@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vincent.emos.wx.db.dao.TbUserDao">
+    <select id="haveRootUser" resultType="boolean">
+        SELECT IF(COUNT(*), TRUE, FALSE)
+        FROM tb_user
+        WHERE root = 1;
+    </select>
+    <select id="searchIdByOpenId" parameterType="String" resultType="Integer">
+        SELECT id
+        FROM tb_user
+        WHERE open_id = #{openId}
+          AND status = 1;
+    </select>
+    <select id="searchUserPermissions" parameterType="int" resultType="String">
+        SELECT p.permission_name
+        FROM tb_user u
+                 JOIN tb_role r ON JSON_CONTAINS(u.role, CAST(r.id AS CHAR))
+                 JOIN tb_permission p ON JSON_CONTAINS(r.permissions, CAST(p.id AS CHAR))
+        WHERE u.id = #{userId}
+          AND u.status = 1;
+    </select>
+
+
+    <resultMap id="users" type="com.vincent.emos.wx.db.pojo.EmployeeList">
+        <!-- id标签表示分组单位 -->
+        <id property="dept_id" column="dept_id"/>
+        <id property="dept_name" column="deptName"/>
+
+        <collection property="employees" ofType="com.vincent.emos.wx.db.pojo.TbUser">
+            <result property="name" column="name"></result>
+            <result property="tel" column="tel"></result>
+            <result property="email" column="email"></result>
+            <result property="sex" column="sex"></result>
+        </collection>
+    </resultMap>
+    <select id="searchUserListGroupByDept" resultMap="users">
+        SELECT u.name, d.dept_name AS deptName, u.tel, u.email, u.hiredate, u.dept_id
+        FROM tb_user u
+                 LEFT JOIN tb_dept d ON u.dept_id = d.id
+    </select>
+    <select id="searchById" parameterType="int" resultType="com.vincent.emos.wx.db.pojo.TbUser">
+        SELECT id,
+               open_id,
+               nickname,
+               photo,
+               name,
+               sex,
+               tel,
+               role,
+               root,
+               email,
+               dept_id,
+               status,
+               hiredate,
+               create_time
+        FROM tb_user
+        WHERE id = #{userId}
+    </select>
+
+    <select id="searchNameAndDept" parameterType="int" resultType="HashMap">
+        SELECT u.name, d.dept_name
+        FROM tb_user u
+                 LEFT JOIN tb_dept d ON u.dept_id = d.id
+        WHERE u.id = #{userId}
+          AND u.status = 1
+    </select>
+    <select id="searchUserHireDate" parameterType="int" resultType="String">
+        SELECT hiredate
+        FROM tb_user
+        WHERE id = #{userId}
+          AND status = 1
+    </select>
+    <select id="searchUserSummary" parameterType="int" resultType="HashMap">
+        SELECT u.name, u.photo, d.dept_name AS deptName, u.tel, u.email, u.hiredate
+        FROM tb_user u
+                 LEFT JOIN tb_dept d ON u.dept_id = d.id
+        WHERE u.id = #{userId}
+          AND u.status = 1
+    </select>
+
+    <select id="searchMembers" parameterType="list" resultType="HashMap">
+        SELECT id,name,photo
+        FROM tb_user
+        WHERE status = 1
+        AND id IN
+        <foreach collection="list" item="one" separator="," open="(" close=")">
+            #{one}
+        </foreach>
+    </select>
+    <insert id="insert" parameterType="HashMap" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        INSERT INTO tb_user
+        SET
+        <if test="openId!=null">
+            open_id = #{openId},
+        </if>
+        <if test="nickname!=null">
+            nickname = #{nickname},
+        </if>
+        <if test="photo!=null">
+            photo = #{photo},
+        </if>
+        <if test="name!=null">
+            name = #{name},
+        </if>
+        <if test="sex!=null">
+            sex = #{sex},
+        </if>
+        <if test="tel!=null">
+            tel = #{tel},
+        </if>
+        <if test="email!=null">
+            email=#{email},
+        </if>
+        <if test="hiredate!=null">
+            hiredate = #{hiredate},
+        </if>
+        role = #{role},
+        root = #{root},
+        <if test="deptName!=null">
+            dept_id = ( SELECT id FROM tb_dept WHERE dept_name = #{deptName} ),
+        </if>
+        status = #{status},
+        create_time = #{createTime}
+    </insert>
+
+
+    <insert id="insertUser" parameterType="com.vincent.emos.wx.db.pojo.TbUser" useGeneratedKeys="true" keyProperty="id"
+            keyColumn="id">
+        INSERT INTO tb_user
+        SET
+        <if test="openId!=null">
+            open_id = #{openId},
+        </if>
+        <if test="nickname!=null">
+            nickname = #{nickname},
+        </if>
+        <if test="photo!=null">
+            photo = #{photo},
+        </if>
+        <if test="name!=null">
+            name = #{name},
+        </if>
+        <if test="sex!=null">
+            sex = #{sex},
+        </if>
+        <if test="tel!=null">
+            tel = #{tel},
+        </if>
+        <if test="email!=null">
+            email=#{email},
+        </if>
+        <if test="hiredate!=null">
+            hiredate = #{hiredate},
+        </if>
+        role = #{role},
+        root = #{root},
+        <if test="deptId!=null">
+            dept_id = #{deptId},
+        </if>
+        <!--    <if test="deptName!=null">-->
+        <!--      dept_id = ( SELECT id FROM tb_dept WHERE dept_name = #{deptName} ),-->
+        <!--    </if>-->
+        status = #{status},
+        create_time = #{createTime}
+    </insert>
+
+    <update id="updateUserInfo" parameterType="com.vincent.emos.wx.db.pojo.TbUser">
+        update tb_user
+        <set>
+            <if test="name!=null">
+                name = #{name},
+            </if>
+            <if test="sex!=null">
+                sex = #{sex},
+            </if>
+            <if test="tel!=null">
+                tel = #{tel},
+            </if>
+            <if test="email!=null">
+                email=#{email},
+            </if>
+            <if test="hiredate!=null">
+                hiredate = #{hiredate},
+            </if>
+            role = #{role},
+            <if test="deptName!=null">
+                dept_id = ( SELECT id FROM tb_dept WHERE dept_name = #{deptName} ),
+            </if>
+            dept_id= #{deptId},
+            status = #{status}
+        </set>
+        where id = #{id}
+    </update>
+
+    <update id="updateUserInfoBySys" parameterType="com.vincent.emos.wx.db.pojo.TbUser">
+        update tb_user
+        <set>
+            <if test="name!=null">
+                name = #{name},
+            </if>
+            <if test="sex!=null">
+                sex = #{sex},
+            </if>
+            <if test="tel!=null">
+                tel = #{tel},
+            </if>
+            <if test="email!=null">
+                email=#{email},
+            </if>
+            <if test="hiredate!=null">
+                hiredate = #{hiredate},
+            </if>
+            role = #{role},
+            root = #{root},
+            <if test="deptId!=null">
+                dept_id = #{deptId},
+            </if>
+
+            status = #{status}
+
+        </set>
+        where id = #{id}
+    </update>
+
+    <select id="searchUserInfo" parameterType="int" resultType="HashMap">
+        SELECT u.open_id                                        AS openId,
+               u.nickname,
+               u.name,
+               u.photo,
+               u.sex,
+               u.tel,
+               u.email,
+               d.dept_name                                      AS dept,
+               u.hiredate,
+               CASE u.status
+                   WHEN 1 THEN "在职"
+                   WHEN 2 THEN "离职"
+                   END                                          AS status,
+               (SELECT GROUP_CONCAT(role_name separator "，")
+                FROM tb_role
+                WHERE JSON_CONTAINS(u.role, CONVERT(id, CHAR))) AS roles
+        FROM tb_user u
+                 LEFT JOIN tb_dept d ON u.dept_id = d.id
+        WHERE u.id = #{userId}
+          AND u.status = 1
+    </select>
+
+    <select id="searchDeptManagerIdByDeptId" parameterType="int" resultType="int">
+
+        SELECT id
+        FROM tb_user
+        WHERE dept_id = #{dept_id}
+          AND JSON_CONTAINS(role, '2')
+          AND status = 1
+
+    </select>
+    <select id="searchDeptManagerId" parameterType="int" resultType="int">
+        SELECT u2.id
+        FROM tb_user u1
+                 JOIN tb_user u2 ON u1.dept_id = u2.dept_id
+                 JOIN tb_role r ON JSON_CONTAINS(u2.role, CAST(r.id AS CHAR))
+        WHERE u1.id = #{id}
+          AND r.id = 2
+          AND u1.status = 1
+          AND u2.status = 1
+    </select>
+    <select id="searchGmId" resultType="int">
+        SELECT u.id
+        FROM tb_user u
+                 JOIN tb_role r ON JSON_CONTAINS(u.role, CAST(r.id AS CHAR))
+        WHERE r.id = 1
+          AND u.status = 1
+    </select>
+    <select id="selectUserPhotoAndName" parameterType="list" resultType="HashMap">
+        SELECT
+        id,name,photo
+        FROM tb_user
+        WHERE status = 1 AND id IN
+        <foreach collection="list" open="(" close=")" item="one" separator=",">
+            #{one}
+        </foreach>
+    </select>
+
+    <update id="dimissionEmployee" parameterType="int">
+
+        update tb_user
+        SET status = 0
+        WHERE id=#{id}
+    </update>
+</mapper>

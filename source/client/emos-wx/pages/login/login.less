@@ -1,0 +1,53 @@
+@import url('../../style.less');
+
+.logo{
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	margin-top: 30%;
+}
+
+.logo-title{
+	font-size: 48rpx;
+	font-weight: bold;
+	text-align: center;
+	margin-top: 8%;
+	color: @font-color;
+}
+
+.logo-subtitle{
+	font-size: 34rpx;
+	text-align: center;
+	color: @font-color;
+	margin-top: 20rpx;
+}
+
+.login-btn{
+	width: 60%;
+	position: absolute;
+	bottom: 20%;
+	left: 20%;
+	background-color: @background-color;
+	color: #FFFFFF;
+	box-sizing: border-box;
+	
+	//伪类简写
+	&:active{
+		background-color: @background-color-active;
+	}
+}
+.register-container{
+	
+	position: absolute;
+	bottom: 50rpx;
+	width: 100%;
+	text-align: center;
+	font-size: 30rpx;
+	color: @font-color;
+	.register{
+		color: @background-color;
+	 }
+	
+}
+

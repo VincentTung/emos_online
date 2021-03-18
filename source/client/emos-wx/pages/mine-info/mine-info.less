@@ -1,0 +1,42 @@
+@import url('../../style.less');
+.page {
+    padding: 35rpx;
+}
+.icon {
+            width: 40rpx;
+        }
+.list-title {
+    margin-top: 35rpx;
+    margin-bottom: 35rpx;
+    font-size: 32rpx;
+    font-weight: bold;
+    color: @background-color;
+    border-left: solid 15rpx @background-color;
+    padding-left: 20rpx;
+}
+.list {
+    .item {
+        padding: 30rpx 15rpx;
+        border-bottom: solid 1rpx #e5e5e5;
+        font-size: 30rpx;
+        color: #333;
+        display: flex;
+        justify-content: space-between;
+        .key {
+        }
+        .value {
+            color: @background-color;
+        }
+        .icon {
+            width: 40rpx;
+        }
+    }
+}
+.btn {
+    margin-top: 100rpx;
+    background-color: @background-color;
+    color: #fff;
+    &:active {
+        background-color: @background-color-active;
+    }
+}

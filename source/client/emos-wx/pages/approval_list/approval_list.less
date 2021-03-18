@@ -1,0 +1,105 @@
+@import url('../../style.less');
+.page{
+    padding: 35rpx;
+}
+.list{
+    margin-top: 45rpx;
+    margin-bottom: 35rpx;
+    .item{
+        display: flex;
+        justify-content: space-between;
+        border-bottom: solid 1rpx #f0f0f0;
+        padding-bottom: 35rpx;
+        margin-bottom: 45rpx;
+        &:last-child{
+            border-bottom:none;
+        }
+        .left{
+            margin-right: 30rpx;
+            flex-grow: 0;
+            .photo{
+                width: 150rpx;
+                border-radius: 10rpx;
+            }
+            .name{
+                font-size: 30rpx;
+                color: #333;
+                text-align: center;
+                margin-bottom: 5rpx;
+            }
+            .desc{
+                font-size: 30rpx;
+                color: #999;
+                text-align: center;
+            }
+        }
+        .center{
+            flex-grow: 1;
+            .title{
+                font-size: 34rpx;
+                color: #333;
+                font-weight: bold;
+                margin-bottom: 20rpx;
+            }
+            .attr{
+                font-size: 30rpx;
+                color: #999;
+                margin-bottom:15rpx;
+                .result{
+                    padding-top: 0;
+                    padding-bottom: 3rpx;
+                    width: 130rpx;
+                    color: #fff;
+                    border-radius: 5rpx;
+                    display: inline-block;
+                    text-align: center;
+                    background-color: #666;
+                }
+                .red{
+                    .result;
+                    background-color: #E8403A !important;
+                }
+                .green{
+                    .result;
+                    background-color: #03AE00 !important;
+                }
+            }
+            .status{
+                font-size: 30rpx;
+                color:#3474FF ;
+            }
+        }
+        .right{
+            flex-grow: 0;
+            margin-left: 35rpx;
+            position: relative;
+            .btn{
+                position: absolute;
+                right: 0;
+                top: 0rpx;
+                font-size: 30rpx;
+                width: 160rpx;
+                background-color: @background-color;
+                color: #fff;
+            }
+            .btn:active{
+                background-color: @background-color-active;
+            }
+            .icon{
+                width: 150rpx;
+                height: auto;
+            }
+            .name{
+                text-align: center;
+                font-size: 30rpx;
+                color: #333;
+                margin-bottom: 5rpx;
+            }
+            .desc{
+                text-align: center;
+                font-size: 30rpx;
+                color: #999;
+            }
+        }
+    }
+}

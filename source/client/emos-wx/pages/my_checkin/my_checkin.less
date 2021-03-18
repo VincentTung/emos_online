@@ -1,0 +1,75 @@
+@import url('../../style.less'); 
+.green {
+    background-color: #35C895 !important;
+}
+.orange {
+    background-color: #EAB83E !important;
+}
+.red {
+    background-color: #EA643E !important;
+}
+.statistics {
+    margin-bottom: 50rpx;
+    .big-icon {
+        width: 250rpx;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 40rpx;
+    }
+    .report-title {
+        display: flex;
+        justify-content: center;
+        margin-top: 20rpx;
+        .days {
+            font-size: 60rpx;
+            color: @font-color;
+        }
+        .unit {
+            margin-top: 33rpx;
+            margin-left: 10rpx;
+        }
+    }
+    .sub-title {
+        font-size: 34rpx;
+        color: @font-color;
+        text-align: center;
+        margin-top: 10rpx;
+        position: relative;
+        text {
+            background-color: #fff;
+            position: relative;
+            z-index: 999;
+            padding: 0 30rpx;
+        }
+        .line {
+            width: 100%;
+            border-bottom: solid 2rpx #e5e5e5;
+            position: absolute;
+            top: 25rpx;
+        }
+    }
+    .report {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30rpx;
+        .column {
+            flex-grow: 1;
+            flex-shrink: 1;
+            color: #fff;
+            padding-top: 20rpx;
+            padding-bottom: 15rpx;
+            .column-title {
+                display: block;
+                text-align: center;
+                font-size: 30rpx;
+                margin-bottom: 5rpx;
+            }
+            .number {
+                display: block;
+                text-align: center;
+                font-size: 30rpx;
+            }
+        }
+    }
+}

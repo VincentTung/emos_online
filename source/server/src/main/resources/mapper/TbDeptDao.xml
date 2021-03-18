@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vincent.emos.wx.db.dao.TbDeptDao">
+
+  <select id="searchAllDepts" resultType="com.vincent.emos.wx.db.pojo.TbDept">
+
+    SELECT  *
+    FROM tb_dept
+  </select>
+  <select id="searchDeptMembers" parameterType="String" resultType="HashMap">
+    SELECT
+        d.id,
+        d.dept_name AS deptName,
+        COUNT(u.id) AS count
+    FROM tb_dept d LEFT JOIN tb_user u ON u.dept_id = d.id AND u.status = 1
+    <if test="keyword!=null">
+      WHERE u.name LIKE '%${keyword}%'
+    </if>
+    GROUP BY d.id
+
+  </select>
+
+    <select id="searchUserGroupByDept" parameterType="String" resultType="HashMap">
+        SELECT
+            d.id AS deptId,
+            d.dept_name AS deptName,
+            u.id AS userId,
+            u.name
+            FROM tb_dept d JOIN tb_user u ON u.dept_id = d.id
+        WHERE  u.status = 1
+        <if test="keyword != null">
+            AND u.name LIKE '%${keyword}%'
+        </if>
+        ORDER BY d.id ,u.id;
+    </select>
+    <insert id="insertDept" parameterType="String"  >
+        INSERT INTO tb_dept
+        SET dept_name =#{deptName}
+    </insert>
+
+
+    <update id="updateDept" parameterType="com.vincent.emos.wx.db.pojo.TbDept">
+        UPDATE tb_dept
+        SET dept_name=#{deptName}
+        WHERE id=#{id}
+    </update>
+    <delete id="deleteDept" parameterType="int">
+        DELETE FROM tb_dept
+        WHERE  id = #{id}
+    </delete>
+</mapper>

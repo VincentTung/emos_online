@@ -1,0 +1,316 @@
+{
+	"pages": [
+		//pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录",
+				"enablePullDownRefresh": false
+			} 
+		
+		},
+		{
+		    "path" : "pages/mgr_employee_detail/mgr_employee_detail",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "",
+		        "enablePullDownRefresh": false
+		    }
+		    
+		},
+		{
+		    "path" : "pages/mgr_unactive_employee_detail/mgr_unactive_employee_detail",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "",
+		        "enablePullDownRefresh": false
+		    }
+		    
+		},
+		{
+		    "path" : "pages/healthy/healthy",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "员工健康",
+		        "enablePullDownRefresh": false
+		    }
+		    
+		},
+		
+		
+		
+		{
+		    "path" : "pages/role_list/role_list",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "权限管理",
+		        "enablePullDownRefresh": false
+		    }
+		    
+		},
+		{
+		    "path" : "pages/role/role",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "",
+		        "enablePullDownRefresh": false
+		    }
+		    
+		},
+		
+	
+		{
+		    "path" : "pages/approval_list/approval_list",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "在线审批",
+		        "enablePullDownRefresh": false
+		    }
+		    
+		},
+		{
+		    "path" : "pages/search-contact/search-contact",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "",
+		        "enablePullDownRefresh": false
+		    }
+		    
+		},
+		{
+			"path": "pages/contacts/contacts",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		
+		},
+		{
+		    "path" : "pages/employee-detail/employee-detail",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "详细资料",
+		        "enablePullDownRefresh": false
+		    }
+		},
+		
+		{
+		    "path" : "pages/message_detail/message_detail",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "",
+		        "enablePullDownRefresh": false
+		    }
+		    
+		},
+		{
+		    "path" : "pages/message_list/message_list",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "",
+		        "enablePullDownRefresh": false
+		    }
+		    
+		},
+		{
+		    "path" : "pages/my_checkin/my_checkin",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "",
+		        "enablePullDownRefresh": false
+		    }
+		    
+		},
+		
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
+			"path": "pages/checkin_result/checkin_result",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		},
+	
+
+		{
+			"path": "pages/register/register",
+			"style": {
+				"navigationBarTitleText": "新用户注册",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/meeting_list/meeting_list",
+			"style": {
+				"navigationBarTitleText": "会议列表",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/document/document",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/mine/mine",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/checkin/checkin",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		}
+        ,{
+            "path" : "pages/employeelist/employeelist",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "部门成员",
+                "enablePullDownRefresh": false
+            }
+        }
+        
+        
+        ,{
+            "path" : "pages/document-detail/document-detail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/mine-info/mine-info",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "个人资料",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/meeting/meeting",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "会议详情",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/member/member",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "选择成员",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        
+        ,{
+            "path" : "pages/approval/approval",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "审批",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        
+        
+        ,{
+            "path" : "pages/dept_list/dept_list",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "部门管理",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        
+        ,{
+            "path" : "pages/manage_employee/manage_employee",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "员工管理",
+                "enablePullDownRefresh": false
+            }
+            
+        },
+		{
+		    "path" : "pages/mgr_unactive_employee/mgr_unactive_employee",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "员工管理",
+		        "enablePullDownRefresh": false
+		    }
+		    
+		}
+        
+    ],
+
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "EMOS系统-翔",
+		"navigationBarBackgroundColor": "#3474FF",
+		"backgroundColor": "#EEEEF4"
+	},
+	"tabBar": {
+		"color": "#666",
+		"selectedColor": "#3474FF",
+		"list": [{
+				"text": "首页",
+				"pagePath": "pages/index/index",
+				"iconPath": "static/bar-1.png",
+				"selectedIconPath": "static/bar-1-active.png"
+			}, {
+				"text": "会议",
+				"pagePath": "pages/meeting_list/meeting_list",
+				"iconPath": "static/bar-2.png",
+				"selectedIconPath": "static/bar-2-active.png"
+			},
+			{
+				"text": "文档",
+				"pagePath": "pages/document/document",
+				"iconPath": "static/bar-3.png",
+				"selectedIconPath": "static/bar-3-active.png"
+			},
+			{
+				"text": "通讯录",
+				"pagePath": "pages/contacts/contacts",
+				"iconPath": "static/bar-4.png",
+				"selectedIconPath": "static/bar-4-active.png"
+			},
+			{
+				"text": "我的",
+				"pagePath": "pages/mine/mine",
+				"iconPath": "static/bar-5.png",
+				"selectedIconPath": "static/bar-5-active.png"
+			}
+		]
+	},
+	"condition" : { //模式配置，仅开发期间生效
+		"current": 0, //当前激活的模式(list 的索引项)
+		"list": [
+			{
+				"name": "", //模式名称
+				"path": "", //启动页面，必选
+				"query": "" //启动参数，在页面的onLoad函数里面得到
+			}
+		]
+	}
+}

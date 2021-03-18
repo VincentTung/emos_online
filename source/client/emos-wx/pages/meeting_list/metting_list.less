@@ -1,0 +1,119 @@
+@import url('../../style.less');
+.page {
+    padding: 35rpx 45rpx;
+    position: relative;
+}
+.logo {
+    margin-top: 30rpx;
+    margin-bottom: 45rpx;
+    width: 100%;
+}
+.add {
+    color: @font-color;
+    position: absolute;
+    top: 50rpx;
+    display: flex;
+    .icon {
+        width: 40rpx;
+        margin-right: 10rpx;
+        margin-top: 6rpx;
+    }
+    text {
+        color: @background-color;
+        font-size: 32rpx;
+    }
+}
+.list-title {
+    margin-bottom: 35rpx;
+    font-size: 38rpx;
+    font-weight: bold;
+    color: @background-color;
+    border-left: solid 15rpx @background-color;
+    padding-left: 20rpx;
+}
+.item {
+    border: solid #e0e0e0 1rpx;
+    padding: 30rpx;
+    background-color: #f7f9fd;
+    border-radius: 15rpx;
+    margin-bottom: 45rpx;
+    .header {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: #e0e0e0 solid 1rpx;
+        padding-bottom: 20rpx;
+        margin-bottom: 20rpx;
+        .left {
+            display: flex;
+            .icon {
+                width: 46rpx;
+                margin-right: 20rpx;
+                margin-top: -5rpx;
+            }
+            text {
+                font-size: 32rpx;
+                color: @font-color;
+            }
+            .blue {
+                color: @background-color;
+            }
+            .red {
+                color: #ff4234;
+            }
+        }
+        .right {
+            text {
+                font-size: 32rpx;
+                color: @background-color;
+            }
+        }
+    }
+    .content {
+        position: relative;
+        .title {
+            font-size: 34rpx;
+            color: @font-color;
+        }
+        .attr {
+            display: flex;
+            color: #999;
+            font-size: 30rpx;
+            padding: 15rpx 0;
+            .timer,
+            .creator,
+            .place {
+                margin-right: 35rpx;
+                display: flex;
+                .icon {
+                    width: 36rpx;
+                    margin-right: 10rpx;
+                    margin-top: 5rpx;
+                }
+            }
+        }
+        .desc {
+            color: #999;
+            font-size: 30rpx;
+            line-height: 1.6;
+        }
+        .btn {
+            background-color: @background-color;
+            color: #fff;
+            width: 140rpx;
+            line-height: 60rpx;
+            height: 60rpx;
+            font-size: 30rpx;
+            padding: 0 10rpx;
+            border-radius: 30rpx;
+            position: absolute;
+            right: 0rpx;
+            top: 20rpx;
+            &:active {
+                background-color: @background-color-active;
+            }
+            &::after {
+                border: none;
+            }
+        }
+    }
+}

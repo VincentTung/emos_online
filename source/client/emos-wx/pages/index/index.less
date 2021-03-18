@@ -1,0 +1,120 @@
+@import url('../../style.less');
+.page{
+	background-color: #EEEEF4;
+}
+.swiper{
+	
+	height: 236px;
+	image{
+		width: 100% !important;
+	}
+}
+.notify-container{
+	background-color: #fff;
+	padding: 25rpx;
+	position: relative;
+	margin-bottom: 20rpx;
+	
+}
+.notify-title{
+	font-size: 32rpx;
+	color: @background-color;
+	margin-bottom: 10rpx;
+}
+
+.notify-icon{
+	width: 38rpx;
+	margin-right: 5rpx;
+	vertical-align: -8rpx;
+}
+.notify-content{
+	font-size: 30rpx;
+	color: @font-color;
+	&:before{
+		display: inline-block;
+		content: "";
+		width: 12rpx;
+		height: 12rpx;
+		border-radius: 6rpx;
+		background-color: red;
+		margin-left: 18rpx;
+		margin-right: 15rpx;
+		vertical-align: 3rpx;
+	}
+}
+.more-icon{
+	position: absolute;
+	right: 5rpx;
+	top: 50rpx;
+	width: 60rpx;
+}
+
+.nav-container{
+	
+	background-color: #fff;
+	margin-bottom: 20rpx;
+	padding: 50rpx 40rpx;
+	
+
+}
+.nav-row{
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 50rpx;
+}
+.nav{
+	text-align: center;
+}
+.icon{
+	width: 80rpx;
+}
+.name{
+	display: block;
+	font-size: 30rpx;
+	color: @font-color;
+}
+.calendar-container{
+    margin-bottom: 20rpx;
+}
+.meeting-container{
+    background-color: #fff;
+    .meeting{
+        padding: 30rpx;
+        position: relative;
+        border-bottom: solid 20rpx #EEEEF4;
+        .row{
+            display: flex;
+            margin-bottom: 15rpx;
+            &:first-child{
+                justify-content: space-between;
+            }
+            .title{
+                color: @font-color;
+                font-size: 34rpx;
+            }
+            .hours{
+                color: #DD524D;
+                font-size: 34rpx;
+            }
+            .desc{
+                font-size: 30rpx;
+                color: #999;
+            }
+            .icon{
+                width: 40rpx;
+                margin-right: 10rpx;
+                margin-top: 2rpx;
+            }
+        }
+        .photo{
+            width: 90rpx;
+            height: 90rpx;
+            border-radius: 45rpx;
+            position: absolute;
+            right: 30rpx;
+            top: 95rpx;
+            border: solid 6rpx #4CAF50;
+            box-sizing: border-box;
+        }
+    }
+}
