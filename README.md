@@ -29,17 +29,26 @@
 3. ...
 ```
 ###小程序已上线
+
 ![小程序](https://github-1304799125.cos.ap-beijing.myqcloud.com/emos_online/wecatapp_qr_2.jpg)
 
 ### 项目效果图
 
-![主页tab1](https://github-1304799125.cos.ap-beijing.myqcloud.com/emos_online/emos_tab1.jpeg) ![主页tab2](https://github-1304799125.cos.ap-beijing.myqcloud.com/emos_online/emos_tab2.jpeg) ![主页tab3](https://github-1304799125.cos.ap-beijing.myqcloud.com/emos_online/emos_tab3.jpeg)
+![主页tab1](https://github-1304799125.cos.ap-beijing.myqcloud.com/emos_online/emos_tab1.jpeg)
+![主页tab2](https://github-1304799125.cos.ap-beijing.myqcloud.com/emos_online/emos_tab2.jpeg) 
+![主页tab3](https://github-1304799125.cos.ap-beijing.myqcloud.com/emos_online/emos_tab3.jpeg)
 
-![主页tab4](https://github-1304799125.cos.ap-beijing.myqcloud.com/emos_online/emos_tab4.jpeg) ![主页tab5](https://github-1304799125.cos.ap-beijing.myqcloud.com/emos_online/emos_tab5.jpeg) ![签到1](https://github-1304799125.cos.ap-beijing.myqcloud.com/emos_online/emos_check1.jpeg)
+![主页tab4](https://github-1304799125.cos.ap-beijing.myqcloud.com/emos_online/emos_tab4.jpeg)
+![主页tab5](https://github-1304799125.cos.ap-beijing.myqcloud.com/emos_online/emos_tab5.jpeg) 
+![签到1](https://github-1304799125.cos.ap-beijing.myqcloud.com/emos_online/emos_check1.jpeg)
 
-![签到2](https://github-1304799125.cos.ap-beijing.myqcloud.com/emos_online/emos_check2.jpeg) ![签到3](https://github-1304799125.cos.ap-beijing.myqcloud.com/emos_online/emos_check3.jpeg) ![会议1](https://github-1304799125.cos.ap-beijing.myqcloud.com/emos_online/emos_meet1.jpeg)
+![签到2](https://github-1304799125.cos.ap-beijing.myqcloud.com/emos_online/emos_check2.jpeg) 
+![签到3](https://github-1304799125.cos.ap-beijing.myqcloud.com/emos_online/emos_check3.jpeg)
+![会议1](https://github-1304799125.cos.ap-beijing.myqcloud.com/emos_online/emos_meet1.jpeg)
 
-![会议1](https://github-1304799125.cos.ap-beijing.myqcloud.com/emos_online/emos_meet2.jpeg) ![会议1](https://github-1304799125.cos.ap-beijing.myqcloud.com/emos_online/emos_meet3.jpeg) ![会议1](https://github-1304799125.cos.ap-beijing.myqcloud.com/emos_online/emos_meet4.jpeg)
+![会议1](https://github-1304799125.cos.ap-beijing.myqcloud.com/emos_online/emos_meet2.jpeg) 
+![会议1](https://github-1304799125.cos.ap-beijing.myqcloud.com/emos_online/emos_meet3.jpeg) 
+![会议1](https://github-1304799125.cos.ap-beijing.myqcloud.com/emos_online/emos_meet4.jpeg)
 
 
 #配置手册
