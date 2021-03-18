@@ -28,7 +28,8 @@
 2. 微信小程序
 3. ...
 ```
-
+###小程序已上线
+![小程序](https://github-1304799125.cos.ap-beijing.myqcloud.com/emos_online/wecatapp_qr_2.jpg)
 
 ### 项目效果图
 
