@@ -1,2 +1,4 @@
 
 source/server/dump.rdb
+*.png
+Source/client/emos-wx/unpackage
